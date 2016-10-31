@@ -6,25 +6,33 @@ function init() {
   var makeDisappear = function(mouseEvent) {
     mouseEvent.preventDefault();
     mouseEvent.target.remove();
+
     if (!mouseEvent.shiftKey) {
       removePowers()
-    } else if (!hasDeletedNode) {
-      hasDeletedNode = true;
-      document.addEventListener('keyup', removeAtShiftKeyup);
     }
+
+    hasDeletedNode = true;
   }
 
-  var removeAtShiftKeyup = function(keyEvent) {
-    if (keyEvent.key === "Shift") {
-      console.log("removing at shift key up")
+  var removeAtKeyup = function(keyEvent) {
+    if (keyEvent.key === "Escape" ||
+      (hasDeletedNode && keyEvent.key === "Shift")) {
       removePowers()
     }
   }
 
   var removePowers = function() {
-    document.removeEventListener('keyup', removeAtShiftKeyup)
     document.removeEventListener('click', makeDisappear)
+    document.removeEventListener('keyup', removeAtKeyup)
+    document.body.classList.remove('magician')
     magicTime = false;
+  }
+
+  var givePowers = function() {
+    document.addEventListener('click', makeDisappear)
+    document.addEventListener('keyup', removeAtKeyup);
+    document.body.classList.add('magician')
+    magicTime = true;
   }
 
   var toggleWand = function() {
@@ -32,7 +40,7 @@ function init() {
     if (magicTime) {
       removePowers()
     } else {
-      document.addEventListener('click', makeDisappear)
+      givePowers()
     }
   }
 
