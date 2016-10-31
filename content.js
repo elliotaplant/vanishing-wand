@@ -8,41 +8,41 @@ function init() {
     mouseEvent.target.remove();
 
     if (!mouseEvent.shiftKey) {
-      removePowers()
+      removePowers();
     }
 
     hasDeletedNode = true;
-  }
+  };
 
   var removeAtKeyup = function(keyEvent) {
     if (keyEvent.key === "Escape" ||
       (hasDeletedNode && keyEvent.key === "Shift")) {
-      removePowers()
+      removePowers();
     }
-  }
+  };
 
   var removePowers = function() {
-    document.removeEventListener('click', makeDisappear)
-    document.removeEventListener('keyup', removeAtKeyup)
-    document.body.classList.remove('magician')
+    document.removeEventListener('click', makeDisappear);
+    document.removeEventListener('keyup', removeAtKeyup);
+    document.body.classList.remove('magician');
     magicTime = false;
-  }
+  };
 
   var givePowers = function() {
-    document.addEventListener('click', makeDisappear)
+    document.addEventListener('click', makeDisappear);
     document.addEventListener('keyup', removeAtKeyup);
-    document.body.classList.add('magician')
+    document.body.classList.add('magician');
     magicTime = true;
   }
 
   var toggleWand = function() {
     hasDeletedNode = false;
     if (magicTime) {
-      removePowers()
+      removePowers();
     } else {
-      givePowers()
+      givePowers();
     }
-  }
+  };
 
   return toggleWand;
 }
