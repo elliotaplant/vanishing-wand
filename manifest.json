@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Dissapearing Wand",
+  "name": "Vanishing Wand",
   "version": "1.0.0",
+  "description": "Make annoying page elements magically disappear",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
