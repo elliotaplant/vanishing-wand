@@ -1,34 +1,40 @@
 // content.js
-console.log('script loaded');
-
 function init() {
   var magicTime = false;
+  var hasDeletedNode = false;
 
   var makeDisappear = function(mouseEvent) {
-    console.log('making Dissapearing')
     mouseEvent.preventDefault();
     mouseEvent.target.remove();
     if (!mouseEvent.shiftKey) {
-      removePowers();
+      removePowers()
+    } else if (!hasDeletedNode) {
+      hasDeletedNode = true;
+      document.addEventListener('keyup', removeAtShiftKeyup);
+    }
+  }
+
+  var removeAtShiftKeyup = function(keyEvent) {
+    if (keyEvent.key === "Shift") {
+      console.log("removing at shift key up")
+      removePowers()
     }
   }
 
   var removePowers = function() {
-    console.log('removing powers')
+    document.removeEventListener('keyup', removeAtShiftKeyup)
     document.removeEventListener('click', makeDisappear)
     magicTime = false;
   }
 
   var toggleWand = function() {
-    console.log('toggling wand')
+    hasDeletedNode = false;
     if (magicTime) {
       removePowers()
     } else {
       document.addEventListener('click', makeDisappear)
     }
   }
-
-  console.log('init run')
 
   return toggleWand;
 }
