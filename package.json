@@ -1,11 +1,11 @@
 {
   "name": "vanishing-wand",
-  "version": "1.1.1",
+  "version": "1.1.0",
   "description": "Vanishing Wand Chrome Extension",
   "main": "background.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "zip -r -X archive_name.zip folder_to_compress"
+    "build": "zip -r -X build.zip src"
   },
   "repository": {
     "type": "git",
