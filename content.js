@@ -12,6 +12,7 @@ function init() {
       mouseEvent.target.remove();
     }
 
+    // Only remove powers if the user isn't holding down the shift key
     if (!mouseEvent.shiftKey) {
       removePowers();
     }
@@ -19,6 +20,7 @@ function init() {
     hasDeletedNode = true;
   };
 
+  // If the user stops holding the shift key and they've deleted nodes, remove their powers
   var removeAtKeyup = function(keyEvent) {
     if (keyEvent.key === "Escape" ||
       (hasDeletedNode && keyEvent.key === "Shift")) {
