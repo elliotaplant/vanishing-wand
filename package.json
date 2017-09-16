@@ -5,7 +5,7 @@
   "main": "background.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": ""
+    "build": "zip -r -X archive_name.zip folder_to_compress"
   },
   "repository": {
     "type": "git",
