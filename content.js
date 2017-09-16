@@ -4,8 +4,13 @@ function init() {
   var hasDeletedNode = false;
 
   var makeDisappear = function(mouseEvent) {
+    // Prevent click from bubbling up (eg, don't navigate to link)
     mouseEvent.preventDefault();
-    mouseEvent.target.remove();
+
+    // Don't allow deleting the body, head, or html elements
+    if (!['BODY', 'HEAD', 'HTML'].includes(mouseEvent.target.tagName.toUpperCase())) {
+      mouseEvent.target.remove();
+    }
 
     if (!mouseEvent.shiftKey) {
       removePowers();
