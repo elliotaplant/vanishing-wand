@@ -1,0 +1,26 @@
+{
+  "name": "vanishing-wand",
+  "version": "1.1.0",
+  "description": "Vanishing Wand Chrome Extension",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elliotaplant/vanishing-wand.git"
+  },
+  "keywords": [
+    "vanishing",
+    "wand",
+    "chrome",
+    "extension"
+  ],
+  "author": "elliotaplant@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elliotaplant/vanishing-wand/issues"
+  },
+  "homepage": "https://github.com/elliotaplant/vanishing-wand#readme"
+}
