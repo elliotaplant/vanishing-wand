@@ -1,6 +1,6 @@
 {
   "name": "vanishing-wand",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Vanishing Wand Chrome Extension",
   "main": "background.js",
   "scripts": {
